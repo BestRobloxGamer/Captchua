@@ -7,11 +7,12 @@ body {
 
 .select * {
     display: inline;
+    vertical-align: middle;
 }
 
 .select button {
-    width: 1.5em;
-    height: 1.5em;
+    width: 1.8em;
+    height: 1.8em;
     margin-right: 10px;
 }
 
