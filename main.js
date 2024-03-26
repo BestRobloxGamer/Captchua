@@ -1,3 +1,8 @@
+const initButton = document.getElementById("begin");
+const mainClass = document.getElementById("main");
+
+const dhtml = document.documentElement;
+
 const buttons = document.querySelectorAll(".box button");
 const verifyButton = document.querySelector(".verify");
 
@@ -36,6 +41,10 @@ document.addEventListener("DOMContentLoaded", function() {
     });
     reloadImg();
 
+    initButton.addEventListener("click", () => {
+        mainClass.style.visibility = "visible";
+    })
+
     verifyButton.addEventListener("click", function() {
         
 
@@ -50,6 +59,18 @@ document.addEventListener("DOMContentLoaded", function() {
         verifyButton.textContent = "SKIP";
         reloadImg();
     });
+});
+
+document.addEventListener('click', function(event) {
+    console.log(event.target)
+    console.log(dhtml)
+    if(event.target == dhtml) {
+        if (mainClass.style.visibility == "visible"){
+            mainClass.style.visibility = "hidden";
+            errorDisplay.style.visibility = "hidden";
+        }
+
+    }
 });
 
 

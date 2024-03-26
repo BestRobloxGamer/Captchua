@@ -29,7 +29,7 @@ body {
     transform: translate(-50%, -50%); /* Move the box back by half its width and height */
     justify-content: space-between; /* Align items with space between them */
 
-    visibility: hidden;
+    visibility: visible;
 }
 
 .main {
@@ -39,6 +39,8 @@ body {
     left: 50%; /* Align left edge to 50% of the viewport width */
     transform: translate(-50%, -50%); /* Move the box back by half its width and height */
     justify-content: space-between; /* Align items with space between them */
+    
+    visibility: hidden;
 }
 
 .main .contents h5 {
