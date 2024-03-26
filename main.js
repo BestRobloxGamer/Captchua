@@ -1,3 +1,5 @@
+// Comments are no longer maintained
+
 const initButton = document.getElementById("begin");
 const mainClass = document.getElementById("main");
 
@@ -12,6 +14,8 @@ const errorDisplay = document.querySelector(".errText");
 const instr_label_1 = document.getElementById("instr_1");
 const instr_label_main = document.getElementById("mainInstr");
 const instr_label_2 = document.getElementById("instr_2");
+
+const refresh = document.getElementById("refresh");
 
 document.addEventListener("DOMContentLoaded", function() {
 
@@ -43,11 +47,11 @@ document.addEventListener("DOMContentLoaded", function() {
 
     initButton.addEventListener("click", () => {
         mainClass.style.visibility = "visible";
+        mainClass.style.opacity = 1;
     })
 
     verifyButton.addEventListener("click", function() {
         
-
         // Change text or button image based on condition
         saveImg();
         topic = initGame(1);
@@ -62,16 +66,31 @@ document.addEventListener("DOMContentLoaded", function() {
 });
 
 document.addEventListener('click', function(event) {
-    console.log(event.target)
-    console.log(dhtml)
     if(event.target == dhtml) {
         if (mainClass.style.visibility == "visible"){
-            mainClass.style.visibility = "hidden";
+            mainClass.style.opacity = 0;
             errorDisplay.style.visibility = "hidden";
+            mainClass.style.visibility = "hidden";
+            buttons.forEach(button => {
+                refreshButtons(button);
+            });
         }
 
     }
 });
+
+refresh.addEventListener("click", () => {
+    saveImg();
+    let topic = initGame(1);
+    buttons.forEach(button => {
+        hideError();
+        refreshButtons(button);
+        updateButton(button, topic);
+    });
+    verifyButton.textContent = "SKIP";
+    reloadImg();
+})
+
 
 
 function raiseError(err) {
@@ -79,6 +98,10 @@ function raiseError(err) {
     errorDisplay.style.visibility = "visible";
 }
 
+function hideError() {
+    errorDisplay.textContent = "";
+    errorDisplay.style.visibility = "hidden";
+}
 
 // Utility Functions
 
@@ -138,7 +161,6 @@ function updateButton(button, topic) {
     if (randomImage == "ERR") {
         button.dataset.image = 'placeholder.png.webp'; // Store the image filename in a data attribute
     } else {
-        console.log(randomImage);
         button.style.backgroundImage = `url('img/${randomImage}')`; // Adjust the path to your images folder
         button.dataset.image = randomImage; // Store the image filename in a data attribute
     }
@@ -150,7 +172,6 @@ function saveImg() {
 
 function reloadImg() {{
     images = JSON.parse(image_backup);
-    console.log(images)
 }}
 
 function initGame(type) {
@@ -189,7 +210,6 @@ function getRandomCarsImage(randomTopic) {
     const randomIndex = Math.floor(Math.random() * images.car_images.length);
     
     selected_image = images.car_images[randomIndex];
-    console.log(randomIndex)
     
     images.car_images.splice(randomIndex, 1);
 
