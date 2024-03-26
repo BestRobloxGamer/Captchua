@@ -40,8 +40,8 @@ body {
     left: 50%; /* Align left edge to 50% of the viewport width */
     transform: translate(-50%, -50%); /* Move the box back by half its width and height */
     justify-content: space-between; /* Align items with space between them */
-    opacity: 0;
-    visibility: hidden;
+    opacity: 1;
+    visibility: visible;
     transition: 0.5s;
 }
 
@@ -82,8 +82,10 @@ body {
 .box {
     display: grid;
     grid-template-columns: repeat(4, 0fr); /* Adjust as needed */
+    background-color: aliceblue;
     gap: 1px; /* Adjust the gap between buttons */
-
+    /* width: 26.875em; */
+    /* height: 26.875em; */
     padding-top: 5px;
 }
 
