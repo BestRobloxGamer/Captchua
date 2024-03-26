@@ -16,6 +16,7 @@ body {
 }
 
 .select {
+    border: 0.05em solid rgb(174, 174, 174); /* Adjust border style as needed */
     background-color: rgb(242, 242, 242);
     padding: 30px;
     border-radius: 6px;
