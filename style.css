@@ -40,8 +40,8 @@ body {
     left: 50%; /* Align left edge to 50% of the viewport width */
     transform: translate(-50%, -50%); /* Move the box back by half its width and height */
     justify-content: space-between; /* Align items with space between them */
-    opacity: 1;
-    visibility: visible;
+    opacity: 0;
+    visibility: hidden;
     transition: 0.5s;
 }
 

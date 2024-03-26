@@ -106,7 +106,9 @@ function hideError() {
 // Utility Functions
 
 //const images = ['cars/farrari.jpg','cars/future.jpg'];
-const topics = ['cars'];
+const topics = ['cars', 'cats', 'dogs'];
+
+let prevtopic = null;
 
 let images = {
     car_images: [
@@ -181,6 +183,7 @@ function initGame(type) {
 
     if(type == 1) {
         const topic = getRandomTopic();
+
         instr_label_1.textContent = "Select all images with";
         instr_label_2.textContent = "If there are none, click on verify";
         instr_label_main.textContent = topic;
@@ -191,14 +194,26 @@ function initGame(type) {
 
 function getRandomTopic() {
     const randomIndex = Math.floor(Math.random() * topics.length);
-    return topics[randomIndex];
+    const topic = topics[randomIndex];
+
+    if(prevtopic) {
+        if (topic == prevtopic) {
+            return getRandomTopic();
+        }
+    }
+    prevtopic = topic;
+    return topic;
 }
 
 function getRandomImage(randomTopic) {
 
     if(randomTopic == 'cars') {
         return getRandomCarsImage(randomTopic);
-    }   
+    } else if(randomTopic == 'cats') {
+        return getRandomCarsImage("cars");
+    } else if(randomTopic == 'dogs') {
+        return getRandomCarsImage("cars");
+    } 
 }
 
 function getRandomCarsImage(randomTopic) {
