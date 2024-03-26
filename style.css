@@ -88,8 +88,8 @@ body {
 
 .box * {
     border-style: none;
-    width: 6em;
-    height: 6em;
+    width: 8em;
+    height: 8em;
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
