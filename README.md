@@ -11,7 +11,7 @@ All images are sourced from browser
 
 ---
 
-###Stages: (Will be updated)
+### Stages: (Will be updated)
 - Select images with (an object)
 - Select images containing (something)
 - Select images (with a condition)
