@@ -177,7 +177,7 @@ body {
 }
 
 .clicked {
-    border: 0.5em solid white; /* Adjust border style as needed */
+    border: 0.75em solid white; /* Adjust border style as needed */
     box-sizing: border-box; /* Prevent border from affecting dimensions */
     transition: border-width 0.15s ease; /* Transition for border width */
 }
